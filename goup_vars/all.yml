@@ -1,5 +1,0 @@
-docker_image_gitlab_runner: "gitlab/gitlab-runner"
-
-python_ppa: "ppa:deadsnakes/ppa"
-python_ver: "python3.10"
-pycharm_ver: "pycharm-community"
