@@ -1,0 +1,4 @@
+- name: Pull default Docker image
+  community.docker.docker_image:
+    name: "{{ docker_image_gitlab_runner }}"
+    source: pull

@@ -6,14 +6,28 @@
 
     - name: Update Distribution
       tags: update
-      dnf:
-        update_cache: yes
-      changed_when: false
-      when: ansible_distribution == "CentOS"
-
-    - name: Update Distribution
-      tags: update
       apt:
         update_cache: yes
       changed_when: false
       when: ansible_distribution != "CentOS"
+
+    - name: Install aptitude
+      apt:
+        name: aptitude
+        state: latest
+        update_cache: true
+
+- hosts: all
+  become: true
+  roles:
+    - base
+
+- hosts: dev-machines
+  become: true
+  roles:
+    - dev-machines
+
+- hosts: servers
+  become: true
+  roles:
+    - servers
